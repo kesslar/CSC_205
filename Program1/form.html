@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Program 1 </title>
+</head>
+
+<body id="main_body">
+    <img id="top" src="top.png" alt="">
+    <div id="form_container">
+        <h1><a>Program 1 </a></h1>
+        <form id="program2" class="appnitro" method="post" action="">
+            <div class="form_description">        
+                <p>Text manipulation program!</p>
+            </div>
+            <div>
+                <label for="field1">Input Field </label>                
+                <input id="field1" name="field1" class="element text" maxlength="255" size="8" value="" />                
+            </div>            
+            <div>
+                <p id="p1">1</p>
+                <p id="p2">2</p>
+            </div>
+            <div class="buttons">
+                <input id="submit" class="button_text" type="submit" name="submit" value="Submit" />
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+
+    //take the event from label (field1) and exicutes the following when an event happens
+    field1.oninput=function()  {
+
+        //If the value in field1 is not a number retgurns false
+  if (isNaN(field1.value)){
+   
+        //take the value of field1 and display it in p1
+      p1.innerHTML = field1.value;
+        //take the value of field1 and concatenate it with "is not a number"
+      p2.innerHTML = field1.value + " is not a number";
+
+  }
+  else {
+    p1.innerHTML = field1.value
+
+    p2.innerHTML = field1.value * field1.value;
+  }   
+ };
+  
+  //adding an event listener keyword for "KeyDown" and calling the function keyPressed
+ document.addEventListener("keydown", keyPressed)
+
+    //calling the keypressed function event as evt event object
+     function keyPressed(evt)
+     //
+ {
+ if (evt.keyCode == 27) {
+    //clear your textbox content here...
+    field1.value = ""
+    p1.innerHTML = ""
+    p2.innerHTML = ""
+
+    p1.innerHTML = "1"
+    p2.innerHTML = "2"
+
+    }
+  }
+
+</script>
+</html>
