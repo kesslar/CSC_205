@@ -30,21 +30,22 @@
 </body>
 <script>
 
-    //take the event from label (field1) and exicutes the following when an event happens
+    //take the event from label (field1) and exicutes the following when an event happens to the label
     field1.oninput=function()  {
 
-        //If the value in field1 is not a number retgurns false
+        //If the value in field1 is not an integer returns false
   if (isNaN(field1.value)){
    
         //take the value of field1 and display it in p1
       p1.innerHTML = field1.value;
         //take the value of field1 and concatenate it with "is not a number"
       p2.innerHTML = field1.value + " is not a number";
-
   }
+    //if the ifstatement evaulates to true, the following code executes
   else {
+      //take the valye of field1 and display it in p1
     p1.innerHTML = field1.value
-
+      //take the value of field1 and multiple it by itself and display the product in p2
     p2.innerHTML = field1.value * field1.value;
   }   
  };
@@ -57,16 +58,14 @@
      //
  {
  if (evt.keyCode == 27) {
-    //clear your textbox content here...
+    //clear all of the following 
     field1.value = ""
     p1.innerHTML = ""
     p2.innerHTML = ""
 
     p1.innerHTML = "1"
     p2.innerHTML = "2"
-
     }
   }
-
 </script>
 </html>
