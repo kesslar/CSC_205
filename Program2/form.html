@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Program 2 </title>
+    <link rel="stylesheet" type="text/css" href="view.css" media="all">
+    <script type="text/javascript" src="view1.js"></script>
+</head>
+
+<body id="main_body">
+    <img id="top" src="top.png" alt="">
+    <div id="form_container">        
+        <form id="program2" class="appnitro" method="post" action="">
+            <div class="form_description">
+                <h2>Program 2 </h2>
+                <p>Form validation Program</p>
+            </div>
+            <div>
+                <label class="description" for="element_1">Name </label>
+                <div>
+                    <span>
+                        <label>First</label>
+                        <input id="firstname" name="firstname" class="element text" maxlength="255" size="8" value="" />
+                    </span>
+                    <span>
+                        <label>Last</label>
+                        <input id="lastname" name="lastname" class="element text" maxlength="255" size="14" value="" />
+                    </span>
+                    <div id="nameerror" class="errormsg">Error goes here</div>
+                </div>
+            </div>
+            <div>
+                <label class="description" for="element_2">Email </label>
+                <div>
+                    <input id="email" name="email" class="element text medium" type="text" maxlength="255" value="" />
+                </div>
+                <div id="emailerror" class="errormsg">Error goes here</div>
+            </div>
+            <div>
+                <label class="description" for="element_3">Age </label>
+                <div>
+                    <input id="age" name="age" class="element text small" type="text" maxlength="255" value="" />
+                </div>
+                <div id="ageerror" class="errormsg hide">Error goes here</div>
+            </div>
+            <div class="buttons">
+                <input id="submit" class="button_text" type="submit" name="submit" value="Submit" />
+            </div>
+            <div class="clearButton">
+                <button id="clear" class="button_text" type="clear" name="clear" value="Clear">Clear</button>
+            </div>
+            
+        </form>
+    </div>
+</body>
+
+<script>
+
+    clear.addEventListener("click", (buttonClick) => {
+        buttonClick.preventDefault();
+
+        nameerror.innerHTML="Error goes here"
+
+        emailerror.innerHTML="Error goes here"
+
+        ageerror.innerHTML="Error goes here"
+        
+        firstname.style.borderColor="";        
+        
+        firstname.style.backgroundColor="";
+        
+        lastname.style.borderColor="";        
+        
+        lastname.style.backgroundColor=""
+        
+        email.style.backgroundColor=""
+        
+        email.style.borderColor=""
+        
+        age.style.backgroundColor=""  
+        
+        age.style.borderColor=""
+        
+        firstname.value=""
+        
+        lastname.value=""
+        
+        email.value=""
+        
+        age.value=""
+    });
+
+    submit.addEventListener("click", (buttonClick) => {
+
+        buttonClick.preventDefault();
+        
+        var ReGex = /^[a-z\s]+$/i;
+
+        let firstnameCheck=firstname.value;
+        let lastnameCheck=lastname.value;
+
+    if(firstnameCheck.search(ReGex) !==-1 && lastnameCheck.search(ReGex) !==-1){
+        nameerror.innerHTML="GO AND HAVE FUN"
+    }
+    if(firstnameCheck.search(ReGex) ==-1){
+        firstname.style.borderColor="red";
+        
+        firstname.style.backgroundColor="#ffcccc";
+
+        nameerror.innerHTML="Please check first name"
+    }
+    if(lastnameCheck.search(ReGex) ==-1) {
+        lastname.style.borderColor="red";
+        
+        lastname.style.backgroundColor="#ffcccc"
+
+        nameerror.innerHTML="Please check last name"
+    }
+    if(firstnameCheck.search(ReGex) ==-1 && lastnameCheck.search(ReGex) ==-1){
+        nameerror.innerHTML="Please check both first and last name"
+    }
+    function emailIsValid (email) { 
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) 
+    }
+    if(!emailIsValid(email.value)){
+        emailerror.innerHTML="Please check the email"   
+
+        email.style.backgroundColor="#ffcccc"
+
+        email.style.borderColor="red"
+    }
+    else{
+        emailerror.innerHTML="GO AND HAVE FUN"
+    }
+
+    if(!isNaN(age.value) /*&& age.value !==""*/){
+        ageerror.innerHTML="GO AND HAVE FUN"
+    }
+    else{
+        ageerror.innerHTML="Please check age"
+
+        age.style.borderColor="red"
+
+        age.style.backgroundColor="#ffcccc"
+    }
+});
+</script>
+
+</html>
