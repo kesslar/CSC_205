@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Calculator</title>
+    
+    <style>
+    	form div {
+    		padding: 20px;
+    	}
+    </style>
+</head>
+
+<body id="main_body"> 
+
+    <div id="form_container">
+        <h1><a>Event and Form data</a></h1>        
+        <form id="program2" class="appnitro" method="post" action="">
+            <div class="form_description">        
+                <p>js_classes.html</p>
+            </div>
+
+            <div>
+                <label for="field1">First Number</label>                
+                <input id="field1" name="field1" class="element text" maxlength="255" size="8" value="" />                
+            </div>    
+
+            <div>
+                <label for="field2">Second Number</label>                
+                <input id="field2" name="field2" class="element text" maxlength="255" size="8" value="" />                
+            </div>         
+            
+            <div class="buttons">
+                <input id="multiply" class="button_text" type="button" name="multiply" value="Multiply" />
+
+                <input id="divide" class="button_text" type="button" name="divide" value="Divide" />
+
+                <input id="clear" class="button_text" type="button" name="clear" value="Clear" />
+            </div>
+
+            <div>
+            	<p>The answer is: <span id="answer">Unknown</span></p>
+            </div>
+
+
+        </form>
+    </div>
+
+    <script>
+
+    	let calc = class {
+
+    		firstnum = null;
+    		secondnum = null;
+
+    		multiply() {
+    			return this.firstnum * this.secondnum;
+    		}
+
+    		divide() {
+    			return this.firstnum / this.secondnum;
+    		}
+    	}
+    	
+    	let Calculator = new calc;
+
+
+    	// Field data collectors
+    	field1.addEventListener( "change", function (e) { 
+    		console.log(e);
+    		Calculator.firstnum = e.target.value; 
+    	});
+
+    	field2.addEventListener( "change", function (e) { 
+    		Calculator.secondnum = e.target.value; 
+    	});
+
+    	// Simple click event listener
+    	multiply.addEventListener( "click" , function() {
+    		document.getElementById("answer").textContent = Calculator.multiply();
+    	});
+
+    	divide.addEventListener( "click" , function() {
+    		document.getElementById("answer").textContent = Calculator.divide();
+    	});
+
+    	clear.addEventListener( "click" , function() {
+    		Calculator.firstnum = null;
+    		Calculator.secondnum = null;
+    		document.getElementById("field1").value = null;
+    		document.getElementById("field2").value = null;
+    		// Trash object here
+
+    	});
+
+    </script>
+
+
+</body>
+
+</html>

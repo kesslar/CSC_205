@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Events and Forms</title>
+</head>
+
+<body id="main_body"> 
+
+
+
+
+    <div id="form_container">
+        <h1><a>Event and Form data</a></h1>        
+        <form id="program2" class="appnitro" method="post" action="">
+            <div class="form_description">        
+                <p>js_forms_and_events.html</p>
+            </div>
+            <div>
+                <label for="field1">Input Field </label>                
+                <input id="field1" name="field1" class="element text" maxlength="255" size="8" value="" />                
+            </div>            
+            
+            <div class="buttons">
+                <input id="button1" class="button_text" type="button" name="button1" value="Button 1" />
+                <input id="button2" class="button_text" type="button" name="button2" value="Button 2" />
+            </div>
+        </form>
+    </div>
+
+    <script>
+    	
+    	// Simple click event listener
+    	button2.addEventListener( "click" , () => alert('Thanks!'));
+
+    	
+    	// button2.addEventListener( "click" , function whichButton(event) {
+    	// 			event.preventDefault()
+    	// 			event.stopPropagation();
+		   //  		if (event.which == 1) {
+		   //  			alert('Left Button!');    		
+		   //  		}
+		   //  	});
+
+		// add mouse events to a button
+    		button1.addEventListener( "mouseover" , () => console.log('Mouseover Hello!'));
+    		button1.addEventListener( "mouseout" , () => console.log('Mouseout Goodbye!'));
+
+    	// For a given field, echo its contents to the console log
+    	field1.addEventListener( "input", function getText(){
+
+    		let x = document.getElementById("field1").value;
+    		console.log(x);
+    	});
+
+    </script>
+
+
+</body>
+
+</html>
